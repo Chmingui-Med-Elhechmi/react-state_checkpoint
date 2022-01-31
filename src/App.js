@@ -7,7 +7,8 @@ export default class App extends Component {
     super(props)
 
     this.state ={
-          shows : false
+          shows : false,
+          counter:0
     }
     this.Person = {
       fullName: 'Mohamed Elhechmi Chmingui',
@@ -22,7 +23,7 @@ export default class App extends Component {
   }
   
   componentDidMount() {
-    setInterval(()=> this.setState({shows:!this.state.shows}, 1000))
+    setInterval(()=> this.setState({counter:this.state.counter+1}),1000)
   }
   
 
@@ -34,6 +35,7 @@ export default class App extends Component {
                                                    <h4>Bio : {this.Person.bio}</h4>
                             </div> : <img className='images' src={imgReact} alt='react'/>}<br/>
       <button className='btn' onClick={this.shows}>show</button>
+      <h1>{this.state.counter}</h1>
     </div>;
   }
 }
